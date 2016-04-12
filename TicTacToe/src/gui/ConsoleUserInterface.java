@@ -1,10 +1,9 @@
 package gui;
 
-import game.Game;
 import game.entities.GameInfo;
 import game.entities.Player;
 import game.entities.Statistic;
-import game.enums.GameSymbols;
+import game.enums.Symbols;
 import interfaces.UserInterface;
 
 import java.util.Scanner;
@@ -32,7 +31,7 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public void drawField(GameSymbols[][] field) {
+    public void drawField(Symbols[][] field) {
         for (int i = 0; i < field.length; i++) {
             System.out.println("-------");
             System.out.print("|");

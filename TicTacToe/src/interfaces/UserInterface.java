@@ -3,14 +3,14 @@ package interfaces;
 import game.entities.GameInfo;
 import game.entities.Player;
 import game.entities.Statistic;
-import game.enums.GameSymbols;
+import game.enums.Symbols;
 
 public interface UserInterface {
     void readPlayerMove(Player player);
 
     void notifyForPlayerMove(Player player, int[] moves);
 
-    void drawField(GameSymbols[][] field);
+    void drawField(Symbols[][] field);
 
     void drawGameInfo(GameInfo gameInfo);
 

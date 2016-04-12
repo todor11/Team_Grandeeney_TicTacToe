@@ -4,13 +4,13 @@ package game;
 import game.entities.GameInfo;
 import game.entities.Player;
 import game.entities.Statistic;
-import game.enums.GameSymbols;
+import game.enums.Symbols;
 import interfaces.UserInterface;
 import interfaces.WinningDatabase;
 
 public class Game implements Runnable{
     private UserInterface userInterface;
-    private GameSymbols[][] field;
+    private Symbols[][] field;
     private WinningDatabase winData;
     private Thread thread;
     private boolean isRunning;
@@ -84,10 +84,10 @@ public class Game implements Runnable{
     private void init(){
         this.isExitGame = false;
         this.players = new Player[2];
-        this.field = new GameSymbols[3][];
-        this.field[0] = new GameSymbols[3];
-        this.field[1] = new GameSymbols[3];
-        this.field[2] = new GameSymbols[3];
+        this.field = new Symbols[3][];
+        this.field[0] = new Symbols[3];
+        this.field[1] = new Symbols[3];
+        this.field[2] = new Symbols[3];
 
     }
 

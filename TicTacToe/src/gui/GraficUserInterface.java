@@ -3,7 +3,7 @@ package gui;
 import game.entities.GameInfo;
 import game.entities.Player;
 import game.entities.Statistic;
-import game.enums.GameSymbols;
+import game.enums.Symbols;
 import interfaces.UserInterface;
 
 public class GraficUserInterface implements UserInterface {
@@ -20,7 +20,7 @@ public class GraficUserInterface implements UserInterface {
     }
 
     @Override
-    public void drawField(GameSymbols[][] field) {
+    public void drawField(Symbols[][] field) {
 
     }
 
