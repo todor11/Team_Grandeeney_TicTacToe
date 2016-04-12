@@ -1,7 +1,9 @@
 package game;
 
 
+import game.entities.GameInfo;
 import game.entities.Player;
+import game.entities.Statistic;
 import game.enums.GameSymbols;
 import interfaces.UserInterface;
 import interfaces.WinningDatabase;
@@ -16,6 +18,8 @@ public class Game implements Runnable{
     private Player[] players;
     private Player activePlayer;
     private int activePlayerIndex;
+    private Statistic statistic;
+    private GameInfo gameInfo;
 
     public Game(UserInterface userInterface, WinningDatabase winData){
         this.userInterface = userInterface;

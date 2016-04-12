@@ -1,5 +1,7 @@
 package gui;
 
+import game.entities.GameInfo;
+import game.entities.Statistic;
 import game.enums.GameSymbols;
 import interfaces.UserInterface;
 
@@ -25,7 +27,7 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public void write(GameSymbols[][] field) {
+    public void drawField(GameSymbols[][] field) {
         for (int i = 0; i < field.length; i++) {
             System.out.println("-------");
             System.out.print("|");
@@ -46,7 +48,17 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public void write(String text) {
+    public void drawGameInfo(GameInfo gameInfo) {
+
+    }
+
+    @Override
+    public void drawStatistic(Statistic statistic) {
+
+    }
+
+    @Override
+    public void writeMassage(String text) {
         System.out.println(text);
     }
 }

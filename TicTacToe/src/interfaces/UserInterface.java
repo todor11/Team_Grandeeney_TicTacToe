@@ -1,5 +1,7 @@
 package interfaces;
 
+import game.entities.GameInfo;
+import game.entities.Statistic;
 import game.enums.GameSymbols;
 
 public interface UserInterface {
@@ -7,7 +9,11 @@ public interface UserInterface {
 
     String readText();
 
-    void write(GameSymbols[][] field);
+    void drawField(GameSymbols[][] field);
 
-    void write(String text);
+    void drawGameInfo(GameInfo gameInfo);
+
+    void drawStatistic(Statistic statistic);
+
+    void writeMassage(String text);
 }
