@@ -31,15 +31,15 @@ public class Game implements Runnable{
     public void run() {
         //TODO
 
-        while (!this.isExitGame){
-            while (this.isRunning){
+        if (!this.isExitGame){
+            if (this.isRunning){
+                //this.activePlayer.makeYourMove();
+            } else {
                 //TODO
-
-
             }
+        } else {
+            this.stop();
         }
-
-        this.stop();
     }
 
     public synchronized void start(){
@@ -58,6 +58,29 @@ public class Game implements Runnable{
 
     }
 
+    public void executePlayerMove(int[] moves){
+        //this.field[moves[0]][moves[1]] = this.activePlayer.symbol;
+
+        this.userInterface.drawField(this.field);
+        //TODO
+        //notify GUI
+        //
+
+        if (this.validateForWin()){
+            this.isRunning = false;
+            //notify GUI
+            //notify player
+            //TODO
+        } else {
+            this.activePlayerIndex++;
+            this.activePlayerIndex %= 2;
+            this.activePlayer = this.players[activePlayerIndex];
+            //TODO
+        }
+
+        this.run();
+    }
+
     private void init(){
         this.isExitGame = false;
         this.players = new Player[2];
@@ -65,6 +88,11 @@ public class Game implements Runnable{
         this.field[0] = new GameSymbols[3];
         this.field[1] = new GameSymbols[3];
         this.field[2] = new GameSymbols[3];
+    }
+
+    private boolean validateForWin(){
+        //TODO
+        return false;
     }
 
     private boolean isFieldFull(){

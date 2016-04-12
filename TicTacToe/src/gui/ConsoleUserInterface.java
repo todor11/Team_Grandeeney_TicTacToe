@@ -1,11 +1,14 @@
 package gui;
 
+import game.Game;
 import game.entities.GameInfo;
+import game.entities.Player;
 import game.entities.Statistic;
 import game.enums.GameSymbols;
 import interfaces.UserInterface;
 
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 
 public class ConsoleUserInterface implements UserInterface {
@@ -16,14 +19,16 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public int[] read() {
-        //TODO
-        return new int[0];
+    public void readPlayerMove(Player player) {
+        String text = this.console.nextLine();
+        String[] line = text.split("\\s+");
+        int[] moves = this.parseIntArray(line);
+        this.notifyForPlayerMove(player, moves);
     }
 
     @Override
-    public String readText() {
-        return console.nextLine();
+    public void notifyForPlayerMove(Player player, int[] moves) {
+        //player.executeMove(moves);
     }
 
     @Override
@@ -60,5 +65,9 @@ public class ConsoleUserInterface implements UserInterface {
     @Override
     public void writeMassage(String text) {
         System.out.println(text);
+    }
+
+    private int[] parseIntArray(String[] arr) {
+        return Stream.of(arr).mapToInt(Integer::parseInt).toArray();
     }
 }
