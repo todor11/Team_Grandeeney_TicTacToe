@@ -67,6 +67,18 @@ public class ConsoleUserInterface implements UserInterface {
         System.out.println(text);
     }
 
+    @Override
+    public String[] getPlayerTypeAndName() {
+        //TODO
+        return null;
+    }
+
+    @Override
+    public boolean getAnswerForNewGame() {
+        //TODO
+        return false;
+    }
+
     private int[] parseIntArray(String[] arr) {
         return Stream.of(arr).mapToInt(Integer::parseInt).toArray();
     }

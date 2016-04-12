@@ -17,4 +17,8 @@ public interface UserInterface {
     void drawStatistic(Statistic statistic);
 
     void writeMassage(String text);
+
+    String[] getPlayerTypeAndName();
+
+    boolean getAnswerForNewGame();
 }

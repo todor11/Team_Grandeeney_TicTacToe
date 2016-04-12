@@ -1,6 +1,7 @@
 package gui;
 
 import game.entities.GameInfo;
+import game.entities.Player;
 import game.entities.Statistic;
 import game.enums.GameSymbols;
 import interfaces.UserInterface;
@@ -9,13 +10,13 @@ public class GraficUserInterface implements UserInterface {
 
 
     @Override
-    public int[] read() {
-        return new int[0];
+    public void readPlayerMove(Player player) {
+
     }
 
     @Override
-    public String readText() {
-        return null;
+    public void notifyForPlayerMove(Player player, int[] moves) {
+
     }
 
     @Override
@@ -36,5 +37,15 @@ public class GraficUserInterface implements UserInterface {
     @Override
     public void writeMassage(String text) {
 
+    }
+
+    @Override
+    public String[] getPlayerTypeAndName() {
+        return new String[0];
+    }
+
+    @Override
+    public boolean getAnswerForNewGame() {
+        return false;
     }
 }

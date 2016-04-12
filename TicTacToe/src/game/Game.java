@@ -88,6 +88,7 @@ public class Game implements Runnable{
         this.field[0] = new GameSymbols[3];
         this.field[1] = new GameSymbols[3];
         this.field[2] = new GameSymbols[3];
+
     }
 
     private boolean validateForWin(){
