@@ -10,8 +10,8 @@ public class GraficUserInterface implements UserInterface {
 
 
     @Override
-    public void readPlayerMove(Player player) {
-
+    public int[] readPlayerMove(Player player) {
+        return null;
     }
 
     @Override
@@ -21,6 +21,11 @@ public class GraficUserInterface implements UserInterface {
 
     @Override
     public void drawField(Symbols[][] field) {
+
+    }
+
+    @Override
+    public void drawStartPage() {
 
     }
 

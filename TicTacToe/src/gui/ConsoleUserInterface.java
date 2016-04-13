@@ -18,22 +18,25 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public void readPlayerMove(Player player) {
+    public int[] readPlayerMove(Player player) {
         String text = this.console.nextLine();
         String[] line = text.split("\\s+");
         int[] moves = this.parseIntArray(line);
-        this.notifyForPlayerMove(player, moves);
+
+        return moves;
     }
 
     @Override
     public void notifyForPlayerMove(Player player, int[] moves) {
-        //player.executeMove(moves);
     }
 
     @Override
     public void drawField(Symbols[][] field) {
+        System.out.println("=======");
         for (int i = 0; i < field.length; i++) {
-            System.out.println("-------");
+            if (i != 0){
+                System.out.println("-------");
+            }
             System.out.print("|");
             for (int j = 0; j < field[i].length; j++) {
                 if (field[i][j] == null){
@@ -48,7 +51,12 @@ public class ConsoleUserInterface implements UserInterface {
             System.out.println();
         }
 
-        System.out.println("-------");
+        System.out.println("=======");
+    }
+
+    @Override
+    public void drawStartPage() {
+        System.out.println("Write type and name of the players separated by whitespace");
     }
 
     @Override
@@ -68,13 +76,17 @@ public class ConsoleUserInterface implements UserInterface {
 
     @Override
     public String[] getPlayerTypeAndName() {
-        //TODO
-        return null;
+        String[] playerInput = this.console.nextLine().split("\\s+");
+
+        return playerInput;
     }
 
     @Override
     public boolean getAnswerForNewGame() {
-        //TODO
+        if (this.console.nextLine().equals("no")){
+            return true;
+        }
+
         return false;
     }
 

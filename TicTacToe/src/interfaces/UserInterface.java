@@ -6,11 +6,13 @@ import game.entities.Statistic;
 import game.enums.Symbols;
 
 public interface UserInterface {
-    void readPlayerMove(Player player);
+    int[] readPlayerMove(Player player);
 
     void notifyForPlayerMove(Player player, int[] moves);
 
     void drawField(Symbols[][] field);
+
+    void drawStartPage();
 
     void drawGameInfo(GameInfo gameInfo);
 
