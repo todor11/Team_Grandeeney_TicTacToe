@@ -3,8 +3,6 @@ package game.entities;
 import game.Game;
 import game.databases.Step;
 import game.enums.Symbols;
-import interfaces.UserInterface;
-import interfaces.WinningDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +21,7 @@ public class AI extends Player {
 
     @Override
     public void makeMove() {
+        int[] moves = new int[2];
         Map<String, Map<Integer, List<Step>>> data = this.winningData.getData();
         String currentFieldAsString = this.createFieldAsString(this.field);
         String enemyFieldAsString = this.getEnemyField(currentFieldAsString);
@@ -30,8 +29,8 @@ public class AI extends Player {
         //get win from database
         if (data.containsKey(currentFieldAsString) && data.get(currentFieldAsString).containsKey(0)){
             if (data.get(currentFieldAsString).get(0).size() > 0){
-                int[] moves = data.get(currentFieldAsString).get(0).get(0).currentMove;
-                this.field[moves[0]][moves[1]] = this.symbol;
+                moves = data.get(currentFieldAsString).get(0).get(0).currentMove;
+                this.executeMove(moves);
                 return;
             }
         }
@@ -39,15 +38,15 @@ public class AI extends Player {
         //get win by checking now
         int[] winMove = this.getNewOneStepWin(this.field);
         if (winMove != null){
-            this.field[winMove[0]][winMove[1]] = this.symbol;
+            this.executeMove(winMove);
             return;
         }
 
         //check enemy for win in data and block
         if (data.containsKey(enemyFieldAsString) && data.get(enemyFieldAsString).containsKey(0)){
             if (data.get(enemyFieldAsString).get(0).size() > 0){
-                int[] moves = data.get(enemyFieldAsString).get(0).get(0).currentMove;
-                this.field[moves[0]][moves[1]] = this.symbol;
+                moves = data.get(enemyFieldAsString).get(0).get(0).currentMove;
+                this.executeMove(moves);
                 return;
             }
         }
@@ -55,7 +54,7 @@ public class AI extends Player {
         //check enemy for win and block
         int[] winEnemyMove = this.getNewOneStepWin(this.changeRoleInMatrix(this.field));
         if (winEnemyMove != null){
-            this.field[winEnemyMove[0]][winEnemyMove[1]] = this.symbol;
+            this.executeMove(winEnemyMove);
             return;
         }
 
@@ -63,12 +62,8 @@ public class AI extends Player {
 
 
         // get random move
-        int[] moves = getRandomMove();
-        this.field[moves[0]][moves[1]] = this.symbol;
-        //this.field[2][2] = this.symbol;
-
-
-
+        moves = getRandomMove();
+        this.executeMove(moves);
     }
 
     private int[] getRandomMove(){

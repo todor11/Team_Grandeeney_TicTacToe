@@ -11,4 +11,6 @@ public interface WinningDatabase {
     Map<String, Map<Integer, List<Step>>> getData();
 
     void setData(Map<String, Map<Integer, List<Step>>> data);
+
+    void saveData();
 }

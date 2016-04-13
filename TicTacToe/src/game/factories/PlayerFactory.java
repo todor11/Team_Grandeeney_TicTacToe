@@ -9,24 +9,19 @@ import interfaces.UserInterface;
 import interfaces.WinningDatabase;
 
 public class PlayerFactory {
-    private Game game;
 
     public PlayerFactory(){
 
     }
 
-    public Player createPlayer(String type, String name, Symbols symbol){
+    public Player createPlayer(String type, String name, Symbols symbol, Game game){
         switch (type){
             case "Human":
-                return new Human(name, symbol, this.game);
+                return new Human(name, symbol, game);
             case "AI":
-                return new AI(symbol, this.game);
+                return new AI(symbol, game);
         }
 
         return null;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
     }
 }

@@ -15,6 +15,7 @@ public abstract class Player {
     private String name;
     private Step lastStep;
     private boolean isWinner;
+    private int points;
 
     public Player(String name, Symbols symbol, Game game){
         this.name = name;
@@ -24,6 +25,7 @@ public abstract class Player {
         this.userInterface = this.game.getUserInterface();
         this.winningData = this.game.getWinningData();
         this.isWinner = false;
+        this.points = 0;
     }
 
     public abstract void makeMove();
@@ -47,6 +49,14 @@ public abstract class Player {
     public void prepareForNewGame(){
         this.lastStep = null;
         this.isWinner = false;
+    }
+
+    public void updatePoints(){
+        this.points++;
+    }
+
+    public int getPoints(){
+        return this.points;
     }
 
     protected String createFieldAsString(Symbols[][] matrix){

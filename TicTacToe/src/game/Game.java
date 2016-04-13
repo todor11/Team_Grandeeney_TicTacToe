@@ -48,9 +48,12 @@ public class Game implements Runnable{
                 boolean isStartNewGame = userInterface.getAnswerForNewGame();
                 if (isStartNewGame){
                     this.executePlayerChoiceForNewGame(true);
+                } else {
+                    this.executePlayerChoiceForNewGame(false);
                 }
             }
         } else {
+            this.winData.saveData();
             this.stop();
         }
     }
@@ -76,10 +79,17 @@ public class Game implements Runnable{
         if (doWeHaveWinner || this.isFieldFull()){
             this.isRunning = false;
             this.userInterface.drawField(this.field);
-            this.userInterface.writeMassage("Winner : " + this.activePlayer.getName());
+
             if (doWeHaveWinner){
+                this.userInterface.writeMassage("Winner : " + this.activePlayer.getName());
                 this.activePlayer.setIsWinner(true);
+                this.activePlayer.updatePoints();
+            } else {
+                this.players[0].updatePoints();
+                this.players[1].updatePoints();
             }
+
+            this.userInterface.drawField(this.field);
         } else {
             this.activePlayerIndex++;
             this.activePlayerIndex %= 2;
@@ -91,14 +101,27 @@ public class Game implements Runnable{
 
     public void executePlayerChoiceForNewGame(boolean playerChoice){
         if(playerChoice){
-            //TODO
+            this.players[0].prepareForNewGame();
+            this.players[1].prepareForNewGame();
+            this.activePlayerIndex = 0;
+            this.activePlayer = this.players[this.activePlayerIndex];
+            for (Symbols[] symbolses : this.field) {
+                for (Symbols symbol : symbolses) {
+                    symbol = null;
+                }
+            }
+
+        } else {
+            this.isExitGame = true;
         }
+
+        this.play();
     }
 
     public void setPlayerProperties(String[] properties){
         if (properties != null){
-            Player firstPlayer = this.playerFactory.createPlayer(properties[0], properties[1], Symbols.O);
-            Player secondPlayer = this.playerFactory.createPlayer(properties[2], properties[3], Symbols.X);
+            Player firstPlayer = this.playerFactory.createPlayer(properties[0], properties[1], Symbols.O, this);
+            Player secondPlayer = this.playerFactory.createPlayer(properties[2], properties[3], Symbols.X, this);
 
             if (firstPlayer != null && secondPlayer != null){
                 this.players[0] = firstPlayer;
@@ -133,18 +156,33 @@ public class Game implements Runnable{
         this.field[0] = new Symbols[3];
         this.field[1] = new Symbols[3];
         this.field[2] = new Symbols[3];
-
-        this.playerFactory.setGame(this);
     }
 
     private boolean validateForWin(){
-        //TODO
+        if ((this.field[0][0] == this.activePlayer.symbol) && (this.field[0][1] == this.activePlayer.symbol) && (this.field[0][2] == this.activePlayer.symbol) ||
+                (this.field[1][0] == this.activePlayer.symbol) && (this.field[1][1] == this.activePlayer.symbol) && (this.field[1][2] == this.activePlayer.symbol) ||
+                (this.field[2][0] == this.activePlayer.symbol) && (this.field[2][1] == this.activePlayer.symbol) && (this.field[2][2] == this.activePlayer.symbol) ||
+                (this.field[0][0] == this.activePlayer.symbol) && (this.field[1][0] == this.activePlayer.symbol) && (this.field[2][0] == this.activePlayer.symbol) ||
+                (this.field[0][1] == this.activePlayer.symbol) && (this.field[1][1] == this.activePlayer.symbol) && (this.field[2][1] == this.activePlayer.symbol) ||
+                (this.field[0][2] == this.activePlayer.symbol) && (this.field[1][2] == this.activePlayer.symbol) && (this.field[2][2] == this.activePlayer.symbol) ||
+                (this.field[0][0] == this.activePlayer.symbol) && (this.field[1][1] == this.activePlayer.symbol) && (this.field[2][2] == this.activePlayer.symbol) ||
+                (this.field[0][2] == this.activePlayer.symbol) && (this.field[1][1] == this.activePlayer.symbol) && (this.field[2][0] == this.activePlayer.symbol)){
+            return true;
+        }
+
         return false;
     }
 
     private boolean isFieldFull(){
-        return false;
-        //TODO
+        for (int i = 0; i < this.field.length; i++) {
+            for (int j = 0; j < this.field[i].length; j++) {
+                if (this.field[i][j] == null){
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
 

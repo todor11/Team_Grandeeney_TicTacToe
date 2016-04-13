@@ -59,5 +59,10 @@ public class WinData implements WinningDatabase, Serializable {
         this.allData = data;
     }
 
+    @Override
+    public void saveData() {
+        this.dataWriter.writeData(this);
+    }
+
 
 }
