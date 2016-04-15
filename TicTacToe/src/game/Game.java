@@ -54,6 +54,7 @@ public class Game implements Runnable{
             }
         } else {
             this.winData.saveData();
+            this.userInterface.exitGame();
             this.stop();
         }
     }
@@ -101,13 +102,14 @@ public class Game implements Runnable{
 
     public void executePlayerChoiceForNewGame(boolean playerChoice){
         if(playerChoice){
+            this.isRunning = true;
             this.players[0].prepareForNewGame();
             this.players[1].prepareForNewGame();
             this.activePlayerIndex = 0;
             this.activePlayer = this.players[this.activePlayerIndex];
-            for (Symbols[] symbolses : this.field) {
-                for (Symbols symbol : symbolses) {
-                    symbol = null;
+            for (int i = 0; i < this.field.length; i++) {
+                for (int j = 0; j < this.field[i].length; j++) {
+                    this.field[i][j] = null;
                 }
             }
 

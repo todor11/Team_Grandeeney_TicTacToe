@@ -23,4 +23,6 @@ public interface UserInterface {
     String[] getPlayerTypeAndName();
 
     boolean getAnswerForNewGame();
+
+    void exitGame();
 }

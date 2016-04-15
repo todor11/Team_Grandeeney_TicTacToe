@@ -121,6 +121,16 @@ public abstract class Player {
     }
 
     private void saveWinningMovesToDataBase(){
+        int counter = 0;
+        Step tempStep = this.lastStep;
+        while (tempStep.prevStep != null){
+            tempStep.numberOfMovesToWin = counter;
+            this.winningData.addNewData(tempStep);
+            tempStep = tempStep.prevStep;
+            counter++;
+        }
+
+        /*
         this.lastStep.prevStep.prevStep.numberOfMovesToWin = 2;
         this.lastStep.prevStep.numberOfMovesToWin = 1;
         this.lastStep.numberOfMovesToWin = 0;
@@ -128,6 +138,7 @@ public abstract class Player {
         this.winningData.addNewData(this.lastStep.prevStep.prevStep);
         this.winningData.addNewData(this.lastStep.prevStep);
         this.winningData.addNewData(this.lastStep);
+        */
     }
 
     protected boolean checkForWinner(Symbols[][] tempMatrix, Symbols currentSimbol){

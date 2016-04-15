@@ -27,6 +27,7 @@ public class AI extends Player {
         String enemyFieldAsString = this.getEnemyField(currentFieldAsString);
 
         //get win from database
+        boolean f = data.containsKey(currentFieldAsString);
         if (data.containsKey(currentFieldAsString) && data.get(currentFieldAsString).containsKey(0)){
             if (data.get(currentFieldAsString).get(0).size() > 0){
                 moves = data.get(currentFieldAsString).get(0).get(0).currentMove;
@@ -43,6 +44,7 @@ public class AI extends Player {
         }
 
         //check enemy for win in data and block
+        boolean f2 = data.containsKey(enemyFieldAsString);
         if (data.containsKey(enemyFieldAsString) && data.get(enemyFieldAsString).containsKey(0)){
             if (data.get(enemyFieldAsString).get(0).size() > 0){
                 moves = data.get(enemyFieldAsString).get(0).get(0).currentMove;

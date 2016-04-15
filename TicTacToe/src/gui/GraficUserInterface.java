@@ -45,6 +45,11 @@ public class GraficUserInterface implements UserInterface {
     }
 
     @Override
+    public void exitGame(){
+
+    }
+
+    @Override
     public String[] getPlayerTypeAndName() {
         return new String[0];
     }

@@ -91,6 +91,10 @@ public class ConsoleUserInterface implements UserInterface {
         return false;
     }
 
+    public void exitGame(){
+        this.console.close();
+    }
+
     private int[] parseIntArray(String[] arr) {
         return Stream.of(arr).mapToInt(Integer::parseInt).toArray();
     }
