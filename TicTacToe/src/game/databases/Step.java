@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class Step implements Serializable {
     public String fieldAsStringBeforeMove;
+    //public String fieldAsStringAfterMove;
     public Step nextStep;
     public Step prevStep;
     public int[] currentMove;

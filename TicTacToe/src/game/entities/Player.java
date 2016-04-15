@@ -31,8 +31,13 @@ public abstract class Player {
     public abstract void makeMove();
 
     public void executeMove(int[] moves){
-        this.saveMove();
-        this.game.executePlayerMove(moves);
+        if (this.field[moves[0]][moves[1]] != null){
+            this.userInterface.writeMassage("This move is not valid");
+            this.makeMove();
+        } else {
+            this.saveMove();
+            this.game.executePlayerMove(moves);
+        }
     }
 
     public boolean getIsWinner(){
@@ -129,16 +134,6 @@ public abstract class Player {
             tempStep = tempStep.prevStep;
             counter++;
         }
-
-        /*
-        this.lastStep.prevStep.prevStep.numberOfMovesToWin = 2;
-        this.lastStep.prevStep.numberOfMovesToWin = 1;
-        this.lastStep.numberOfMovesToWin = 0;
-
-        this.winningData.addNewData(this.lastStep.prevStep.prevStep);
-        this.winningData.addNewData(this.lastStep.prevStep);
-        this.winningData.addNewData(this.lastStep);
-        */
     }
 
     protected boolean checkForWinner(Symbols[][] tempMatrix, Symbols currentSimbol){
@@ -172,4 +167,10 @@ public abstract class Player {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString(){
+        return this.name + " " + this.points;
+    }
+
 }
