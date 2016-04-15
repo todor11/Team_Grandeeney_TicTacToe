@@ -35,7 +35,7 @@ public abstract class Player {
             this.userInterface.writeMassage("This move is not valid");
             this.makeMove();
         } else {
-            this.saveMove();
+            this.saveMove(moves);
             this.game.executePlayerMove(moves);
         }
     }
@@ -81,56 +81,28 @@ public abstract class Player {
         return fieldAsString.toString();
     }
 
-    private void saveMove(){
-        if (this.lastStep == null){
-            StringBuilder newFieldAsStringBeforeMove = new StringBuilder();
-            int[] move = new int[2];
-            for (int i = 0; i < this.field.length; i++) {
-                for (int j = 0; j < this.field[i].length; j++) {
-                    if (this.field[i][j] == null){
-                        newFieldAsStringBeforeMove.append(0);
-                    } else if (this.field[i][j] == this.symbol){
-                        newFieldAsStringBeforeMove.append(0);
-                        move[0] = i;
-                        move[1] = j;
-                    } else {
-                        newFieldAsStringBeforeMove.append(2);
-                    }
-                }
-            }
-            Step newStep = new Step(newFieldAsStringBeforeMove.toString());
-            this.lastStep = newStep;
-            this.lastStep.currentMove = move;
-            this.lastStep.matrix = this.cloneMatrix(this.field);
-        } else {
-            String fieldAsString = this.createFieldAsString(this.lastStep.matrix);
-            Step newStep = new Step(fieldAsString);
-            newStep.prevStep = this.lastStep;
+    private void saveMove(int[] moves){
+        Step newStep = new Step(this.createFieldAsString(this.field));
+        newStep.currentMove = moves;
+        if (this.lastStep != null){
             this.lastStep.nextStep = newStep;
+            newStep.prevStep = this.lastStep;
             this.lastStep = newStep;
-            String prevField = this.lastStep.fieldAsStringBeforeMove;
-            String nextField = this.createFieldAsString(this.field);
-            int row = 0;
-            int col = 0;
-            for (int i = 0; i < this.lastStep.prevStep.fieldAsStringBeforeMove.length(); i++) {
-                if (prevField.charAt(i) != nextField.charAt(i)){
-                    row = i / this.field[0].length;
-                    col = i % this.field[0].length;
-                }
-            }
-
-            this.lastStep.currentMove[0] = row;
-            this.lastStep.currentMove[1] = col;
-            this.lastStep.matrix = this.cloneMatrix(this.field);
+        } else {
+            this.lastStep = newStep;
         }
     }
 
     private void saveWinningMovesToDataBase(){
         int counter = 0;
         Step tempStep = this.lastStep;
-        while (tempStep.prevStep != null){
+        while (true){
             tempStep.numberOfMovesToWin = counter;
             this.winningData.addNewData(tempStep);
+            if(tempStep.prevStep == null){
+                break;
+            }
+
             tempStep = tempStep.prevStep;
             counter++;
         }
