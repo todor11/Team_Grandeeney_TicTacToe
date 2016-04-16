@@ -21,6 +21,7 @@ public class Game implements Runnable{
     private Statistic statistic;
     private GameInfo gameInfo;
     private PlayerFactory playerFactory;
+    private boolean isZeroIndexPlayerFirst;
 
 
     public Game(UserInterface userInterface, WinningDatabase winData, PlayerFactory playerFactory){
@@ -86,6 +87,7 @@ public class Game implements Runnable{
                 this.activePlayer.setIsWinner(true);
                 this.activePlayer.updatePoints();
             } else {
+                this.userInterface.writeMassage("Current game : equal result!");
                 this.players[0].updatePoints();
                 this.players[1].updatePoints();
             }
@@ -105,7 +107,11 @@ public class Game implements Runnable{
             this.isRunning = true;
             this.players[0].prepareForNewGame();
             this.players[1].prepareForNewGame();
-            this.activePlayerIndex = 0;
+            this.isZeroIndexPlayerFirst ^= this.isZeroIndexPlayerFirst;
+            this.activePlayerIndex = 1;
+            if (this.isZeroIndexPlayerFirst){
+                this.activePlayerIndex = 0;
+            }
             this.activePlayer = this.players[this.activePlayerIndex];
             for (int i = 0; i < this.field.length; i++) {
                 for (int j = 0; j < this.field[i].length; j++) {
@@ -152,6 +158,7 @@ public class Game implements Runnable{
     private void init(){
         this.isExitGame = false;
         this.isRunning = true;
+        this.isZeroIndexPlayerFirst = true;
 
         this.players = new Player[2];
         this.field = new Symbols[3][];
