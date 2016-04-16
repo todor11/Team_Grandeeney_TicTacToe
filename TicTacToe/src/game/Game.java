@@ -1,8 +1,8 @@
 package game;
 
-import game.entities.GameInfo;
+import game.databases.GameInfo;
 import game.entities.Player;
-import game.entities.Statistic;
+import game.databases.Statistic;
 import game.enums.Symbols;
 import game.factories.PlayerFactory;
 import interfaces.UserInterface;

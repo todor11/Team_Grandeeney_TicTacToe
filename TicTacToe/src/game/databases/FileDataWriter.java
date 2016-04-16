@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 
 
 public class FileDataWriter implements DataWriter {
-    private static final String path = "resources/databases/winningDatabase.save";
+    private static final String pathData = "resources/databases/winningDatabase.save";
 
     public FileDataWriter(){
 
@@ -20,11 +20,16 @@ public class FileDataWriter implements DataWriter {
     public void writeData(WinningDatabase data) {
         try (ObjectOutputStream oos = new ObjectOutputStream(
                 new BufferedOutputStream(
-                        new FileOutputStream(this.path)))) {
+                        new FileOutputStream(this.pathData)))) {
             oos.writeObject(data.getData());
         }
         catch (IOException ioe) {
             System.out.println(ioe.toString());
         }
+    }
+
+    @Override
+    public void writeStatistic(Statistic statistic) {
+        //TODO
     }
 }

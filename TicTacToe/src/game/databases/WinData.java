@@ -9,6 +9,7 @@ import java.util.*;
 
 public class WinData implements WinningDatabase, Serializable {
     private Map<String, Map<Integer, List<Step>>> allData;
+    private Map<String, Map<Integer, List<Step>>> allData2;
     private DataReader dataReader;
     private DataWriter dataWriter;
 

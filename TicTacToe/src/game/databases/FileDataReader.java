@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FileDataReader implements DataReader {
-    private static final String path = "resources/databases/winningDatabase.save";
+    private static final String pathData = "resources/databases/winningDatabase.save";
 
     public FileDataReader(){
     }
@@ -17,7 +17,7 @@ public class FileDataReader implements DataReader {
     public void loadData(WinningDatabase winData) {
         try (ObjectInputStream ois = new ObjectInputStream(
                 new BufferedInputStream(
-                        new FileInputStream(this.path)))) {
+                        new FileInputStream(this.pathData)))) {
             winData.setData((Map<String, Map<Integer, List<Step>>>) ois.readObject());
         }
         catch (FileNotFoundException fnff) {
@@ -26,5 +26,10 @@ public class FileDataReader implements DataReader {
         catch (ClassNotFoundException | IOException cnne) {
             System.out.println(cnne.toString());
         }
+    }
+
+    @Override
+    public void loadStatistic(Statistic statistic) {
+        //TODO
     }
 }
