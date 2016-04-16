@@ -62,6 +62,8 @@ public class AI extends Player {
                         this.move = data.get(currentFieldAsString).get(1).get(i).currentMove;
                     }
                 }
+            } else {
+                this.move = bestSteps.get(0).currentMove;
             }
         }
 
