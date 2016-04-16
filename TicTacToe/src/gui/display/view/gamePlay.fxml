@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="800.0" maxWidth="600.0" minHeight="800.0" minWidth="600.0" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.display.view.Controller">
+   <top>
+      <Label alignment="CENTER" maxHeight="190.0" maxWidth="600.0" minHeight="190.0" minWidth="600.0" prefHeight="190.0" prefWidth="600.0" text="Some Text" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <Pane maxHeight="400.0" maxWidth="400.0" minHeight="400.0" minWidth="400.0" prefHeight="400.0" prefWidth="400.0" styleClass="board" stylesheets="@../Style/style.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="147.0" layoutY="20.0" mnemonicParsing="false" opacity="0.24" prefHeight="109.0" prefWidth="105.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="27.0" layoutY="20.0" mnemonicParsing="false" opacity="0.24" prefHeight="109.0" prefWidth="105.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="267.0" layoutY="20.0" mnemonicParsing="false" opacity="0.24" prefHeight="109.0" prefWidth="105.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="27.0" layoutY="146.0" mnemonicParsing="false" opacity="0.24" prefHeight="109.0" prefWidth="105.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="button5" layoutX="147.0" layoutY="146.0" maxHeight="104.0" maxWidth="104.0" minHeight="104.0" minWidth="104.0" mnemonicParsing="false" onAction="#Home" opacity="0.24" prefHeight="104.0" prefWidth="104.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="265.0" layoutY="144.0" mnemonicParsing="false" opacity="0.24" prefHeight="109.0" prefWidth="109.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="27.0" layoutY="266.0" mnemonicParsing="false" opacity="0.24" prefHeight="115.0" prefWidth="105.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="147.0" layoutY="268.0" mnemonicParsing="false" opacity="0.24" prefHeight="110.0" prefWidth="105.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="267.0" layoutY="267.0" mnemonicParsing="false" opacity="0.24" prefHeight="112.0" prefWidth="105.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+   </center>
+   <bottom>
+      <Label alignment="CENTER" maxHeight="190.0" maxWidth="600.0" minHeight="190.0" minWidth="600.0" prefHeight="190.0" prefWidth="600.0" text="Some Text" BorderPane.alignment="CENTER" />
+   </bottom>
+   <padding>
+      <Insets bottom="10.0" top="10.0" />
+   </padding>
+</BorderPane>
