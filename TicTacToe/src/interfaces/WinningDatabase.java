@@ -4,13 +4,14 @@ import game.databases.Step;
 
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public interface WinningDatabase {
     void addNewData(Step step);
 
-    Map<String, Map<Integer, List<Step>>> getData();
+    Map<String, TreeMap<Integer, List<Step>>> getData();
 
-    void setData(Map<String, Map<Integer, List<Step>>> data);
+    void setData(Map<String, TreeMap<Integer, List<Step>>> data);
 
     void saveData();
 }

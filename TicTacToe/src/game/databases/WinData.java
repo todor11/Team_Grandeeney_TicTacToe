@@ -8,8 +8,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class WinData implements WinningDatabase, Serializable {
-    private Map<String, Map<Integer, List<Step>>> allData;
-    private Map<String, Map<Integer, List<Step>>> allData2;
+    private Map<String, TreeMap<Integer, List<Step>>> allData;
     private DataReader dataReader;
     private DataWriter dataWriter;
 
@@ -47,7 +46,7 @@ public class WinData implements WinningDatabase, Serializable {
     }
 
     @Override
-    public Map<String, Map<Integer, List<Step>>> getData(){
+    public Map<String, TreeMap<Integer, List<Step>>> getData(){
         if (this.allData == null){
             this.allData = new HashMap<>();
         }
@@ -56,7 +55,7 @@ public class WinData implements WinningDatabase, Serializable {
     }
 
     @Override
-    public void setData(Map<String, Map<Integer, List<Step>>> data) {
+    public void setData(Map<String, TreeMap<Integer, List<Step>>> data) {
         this.allData = data;
     }
 

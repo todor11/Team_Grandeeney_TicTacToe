@@ -107,7 +107,7 @@ public class Game implements Runnable{
             this.isRunning = true;
             this.players[0].prepareForNewGame();
             this.players[1].prepareForNewGame();
-            this.isZeroIndexPlayerFirst ^= this.isZeroIndexPlayerFirst;
+            this.isZeroIndexPlayerFirst = !this.isZeroIndexPlayerFirst;
             this.activePlayerIndex = 1;
             if (this.isZeroIndexPlayerFirst){
                 this.activePlayerIndex = 0;

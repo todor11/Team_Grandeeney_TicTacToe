@@ -22,21 +22,22 @@ public class Statistic implements StatisticDatabase, Serializable {
 
     @Override
     public void addStatistic(GameInfo gameInfo) {
-
+        //TODO
     }
 
     @Override
     public Map<String, List<Integer>> getStatistic() {
+        //TODO
         return null;
     }
 
     @Override
     public void setStatistic(Map<String, List<Integer>> statistic) {
-
+        //TODO
     }
 
     @Override
     public void saveStatistic() {
-
+        //TODO
     }
 }

@@ -4,15 +4,13 @@ import game.Game;
 import game.databases.Step;
 import game.enums.Symbols;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class AI extends Player {
     private static final String compName = "Computer";
 
     private Random random;
+    private int[] move;
 
     public AI(Symbols symbol, Game game) {
         super(compName, symbol, game);
@@ -21,8 +19,8 @@ public class AI extends Player {
 
     @Override
     public void makeMove() {
-        int[] moves = new int[2];
-        Map<String, Map<Integer, List<Step>>> data = this.winningData.getData();
+        this.move = null;
+        Map<String, TreeMap<Integer, List<Step>>> data = this.winningData.getData();
         String currentFieldAsString = this.createFieldAsString(this.field);
         String enemyFieldAsString = this.getEnemyField(currentFieldAsString);
 
@@ -30,42 +28,49 @@ public class AI extends Player {
         boolean f = data.containsKey(currentFieldAsString);
         if (data.containsKey(currentFieldAsString) && data.get(currentFieldAsString).containsKey(0)){
             if (data.get(currentFieldAsString).get(0).size() > 0){
-                moves = data.get(currentFieldAsString).get(0).get(0).currentMove;
-                this.executeMove(moves);
-                return;
+                this.move = data.get(currentFieldAsString).get(0).get(0).currentMove;
             }
         }
 
         //get win by checking now
-        int[] winMove = this.getNewOneStepWin(this.field);
-        if (winMove != null){
-            this.executeMove(winMove);
-            return;
+        if (this.move == null){
+            this.move = this.getNewOneStepWin(this.field);
         }
 
         //check enemy for win in data and block
         boolean f2 = data.containsKey(enemyFieldAsString);
-        if (data.containsKey(enemyFieldAsString) && data.get(enemyFieldAsString).containsKey(0)){
+        if (this.move == null && data.containsKey(enemyFieldAsString) && data.get(enemyFieldAsString).containsKey(0)){
             if (data.get(enemyFieldAsString).get(0).size() > 0){
-                moves = data.get(enemyFieldAsString).get(0).get(0).currentMove;
-                this.executeMove(moves);
-                return;
+                this.move = data.get(enemyFieldAsString).get(0).get(0).currentMove;
             }
         }
 
         //check enemy for win and block
-        int[] winEnemyMove = this.getNewOneStepWin(this.changeRoleInMatrix(this.field));
-        if (winEnemyMove != null){
-            this.executeMove(winEnemyMove);
-            return;
+        if (this.move == null){
+            this.move = this.getNewOneStepWin(this.changeRoleInMatrix(this.field));
         }
 
         //check data for best move
-
+        if (this.move == null && data.containsKey(currentFieldAsString)){
+            List<Step> bestSteps = data.get(currentFieldAsString).firstEntry().getValue();
+            int numberOfBestStepsToWin = data.get(currentFieldAsString).firstEntry().getKey();
+            if (numberOfBestStepsToWin == 1){
+                for (int i = 0; i < bestSteps.size(); i++) {
+                    String nextBestField = bestSteps.get(i).nextStep.fieldAsStringBeforeMove;
+                    if (data.containsKey(nextBestField) && data.get(nextBestField).containsKey(0) &&
+                            data.get(nextBestField).get(0).size() > 1){
+                        this.move = data.get(currentFieldAsString).get(1).get(i).currentMove;
+                    }
+                }
+            }
+        }
 
         // get random move
-        moves = getRandomMove();
-        this.executeMove(moves);
+        if (this.move == null){
+            this.move = getRandomMove();
+        }
+
+        this.executeMove(this.move);
     }
 
     private int[] getRandomMove(){
