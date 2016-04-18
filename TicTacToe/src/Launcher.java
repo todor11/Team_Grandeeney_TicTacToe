@@ -4,6 +4,7 @@ import game.databases.FileDataWriter;
 import game.databases.WinData;
 import game.factories.PlayerFactory;
 import gui.ConsoleUserInterface;
+import gui.GraficUserInterface;
 import interfaces.DataReader;
 import interfaces.DataWriter;
 import interfaces.UserInterface;
@@ -11,7 +12,7 @@ import interfaces.WinningDatabase;
 
 public class Launcher {
     public static void main(String[] args) {
-        UserInterface userInterface = new ConsoleUserInterface();
+        UserInterface userInterface = new GraficUserInterface();
         DataReader dataReader = new FileDataReader();
         DataWriter dataWriter = new FileDataWriter();
         WinningDatabase dataBase = new WinData(dataReader, dataWriter);

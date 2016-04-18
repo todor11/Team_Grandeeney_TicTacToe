@@ -1,5 +1,6 @@
 package gui;
 
+import game.Game;
 import game.databases.GameInfo;
 import game.entities.Player;
 import game.databases.Statistic;
@@ -27,7 +28,7 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public void notifyForPlayerMove(Player player, int[] moves) {
+    public void notifyForPlayerMove(int[] moves) {
     }
 
     @Override
@@ -75,7 +76,7 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public String[] getPlayerTypeAndName() {
+    public String[] getPlayerTypeAndName(Game game) {
         String[] playerInput = this.console.nextLine().split("\\s+");
 
         return playerInput;

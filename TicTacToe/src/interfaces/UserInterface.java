@@ -1,5 +1,6 @@
 package interfaces;
 
+import game.Game;
 import game.databases.GameInfo;
 import game.entities.Player;
 import game.databases.Statistic;
@@ -8,7 +9,7 @@ import game.enums.Symbols;
 public interface UserInterface {
     int[] readPlayerMove(Player player);
 
-    void notifyForPlayerMove(Player player, int[] moves);
+    void notifyForPlayerMove(int[] moves);
 
     void drawField(Symbols[][] field);
 
@@ -20,7 +21,7 @@ public interface UserInterface {
 
     void writeMassage(String text);
 
-    String[] getPlayerTypeAndName();
+    String[] getPlayerTypeAndName(Game game);
 
     boolean getAnswerForNewGame();
 

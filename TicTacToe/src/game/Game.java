@@ -34,7 +34,7 @@ public class Game implements Runnable{
     @Override
     public void run() {
         this.userInterface.drawStartPage();
-        String[] playerInput = this.userInterface.getPlayerTypeAndName();
+        String[] playerInput = this.userInterface.getPlayerTypeAndName(this);
         if (playerInput != null){
             this.setPlayerProperties(playerInput);
         }
@@ -138,7 +138,7 @@ public class Game implements Runnable{
                 this.play();
             } else {
                 this.userInterface.writeMassage("Incorrect input of player settings");
-                this.userInterface.getPlayerTypeAndName();
+                this.userInterface.getPlayerTypeAndName(this);
             }
         }
     }

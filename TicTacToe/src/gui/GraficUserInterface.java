@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tic_tac_toe.gui;
+package gui;
 
-import game.entities.GameInfo;
+import game.Game;
+import game.databases.GameInfo;
 import game.entities.Player;
-import game.entities.Statistic;
+import game.databases.Statistic;
 import game.enums.Symbols;
 import interfaces.UserInterface;
 import javax.swing.ImageIcon;
@@ -68,17 +69,26 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     private javax.swing.JMenuItem restart;
     private javax.swing.JTextField result;
     private javax.swing.JButton start;
-    // End of variables declaration  
-    
+    // End of variables declaration
+
+    private Player activePlayer;
+    private Game currantGame;
+
+    public GraficUserInterface() {
+
+    }
+
+
      @Override
     public int[] readPlayerMove(Player player) {
-       return this.move;
-       
+         this.activePlayer = player;
+
+         return null;
     }
 
     @Override
-    public void notifyForPlayerMove(Player player, int[] moves) {
-
+    public void notifyForPlayerMove(int[] moves) {
+        this.activePlayer.executeMove(this.move);
     }
 
     @Override
@@ -91,10 +101,10 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("TIC TAC TOE");
-        labelXO.setIcon(labX);
-        endGame.setVisible(false);
-        game.setVisible(false);
-        mainWindow.setVisible(true);
+        this.labelXO.setIcon(this.labX);
+        this.endGame.setVisible(false);
+        this.game.setVisible(false);
+        this.mainWindow.setVisible(true);
         setVisible(true);
 
     }
@@ -120,19 +130,18 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     }
 
     @Override
-    public String[] getPlayerTypeAndName() {
-         
-         return players;
+    public String[] getPlayerTypeAndName(Game game) {
+        this.currantGame = game;
+        return null;
     }
 
     @Override
     public boolean getAnswerForNewGame() {
+        //TODO
         return false;
     }
     
-    public GraficUserInterface() {
-        
-    }
+
    
     
     private void setIconXO(JButton bn){
@@ -574,50 +583,56 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
 
     private void cas1ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         setIconXO(cas1);
-        move = new int[]{0,0};
-        
+        this.move = new int[]{0,0};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void cas3ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         setIconXO(cas3);
-        move = new int[]{2,0};
-         
+        this.move = new int[]{2,0};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void cas2ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         setIconXO(cas2);
-        move = new int[]{1,0};
+        this.move = new int[]{1,0};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void cas6ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         setIconXO(cas6);
-        move = new int[]{2,1};
+        this.move = new int[]{2,1};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void cas5ActionPerformed(java.awt.event.ActionEvent evt) {                                     
-         setIconXO(cas5);
-        move = new int[]{1,1};
+        setIconXO(cas5);
+        this.move = new int[]{1,1};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void cas4ActionPerformed(java.awt.event.ActionEvent evt) {                                     
-        setIconXO(cas4); 
-        move = new int[]{0,1};
+        setIconXO(cas4);
+        this.move = new int[]{0,1};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void cas9ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         setIconXO(cas9);
-        move = new int[]{2,2};
+        this.move = new int[]{2,2};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void cas8ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         setIconXO(cas8);
-        
-        move = new int[]{1,2};
+        this.move = new int[]{1,2};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void cas7ActionPerformed(java.awt.event.ActionEvent evt) {                                     
         setIconXO(cas7);
-        move = new int[]{0,2};
+        this.move = new int[]{0,2};
+        this.notifyForPlayerMove(this.move);
     }                                    
 
     private void resultActionPerformed(java.awt.event.ActionEvent evt) {                                       
@@ -633,27 +648,29 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     }                                       
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {                                      
-        if (player1.getText().isEmpty() || player2.getText().isEmpty() ||  !playerOneChose || !playerTwoChose) {
-            
-        }else{
-                
-                players = new String[4];
-                players[0] = player1.getText();
-                players[1] = symbol[0];
-                players[2] = player2.getText();
-                players[3]= symbol[1];
-                if (players[1].equals("X")) {
-                playerName.setText(players[0]);
-                }else{
-                    playerName.setText(players[2]);
-                }
-               
+
+
+        this.players = new String[4];
+        this.players[0] = player1.getText();
+        this.players[1] = symbol[0];
+        this.players[2] = player2.getText();
+        this.players[3] = symbol[1];
+
+        if (this.players[1].equals("X")) {
+            playerName.setText(this.players[0]);
+        } else {
+            playerName.setText(this.players[2]);
+        }
         mainWindow.setVisible(false);
         game.setVisible(true);
         restart.setEnabled(true);
-           
+
+        if (player1.getText().isEmpty() || player2.getText().isEmpty() ||  !playerOneChose || !playerTwoChose) {
+            this.currantGame.setPlayerProperties(new String[]{"Human", player1.getText(), "AI", "comp"});
+        } else {
+            this.currantGame.setPlayerProperties(new String[]{"Human", player1.getText(), "Human", player2.getText()});
         }
-    }                                     
+    }
 
     private void restartActionPerformed(java.awt.event.ActionEvent evt) {                                        
         
