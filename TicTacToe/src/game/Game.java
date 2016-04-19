@@ -46,11 +46,9 @@ public class Game implements Runnable{
                 this.userInterface.drawField(this.field);
                 this.activePlayer.makeMove();
             } else {
-                boolean isStartNewGame = userInterface.getAnswerForNewGame();
+                boolean isStartNewGame = userInterface.getAnswerForNewGame(this);
                 if (isStartNewGame){
                     this.executePlayerChoiceForNewGame(true);
-                } else {
-                    this.executePlayerChoiceForNewGame(false);
                 }
             }
         } else {

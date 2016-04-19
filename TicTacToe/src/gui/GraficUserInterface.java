@@ -136,8 +136,11 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     }
 
     @Override
-    public boolean getAnswerForNewGame() {
-        //TODO
+    public boolean getAnswerForNewGame(Game game) {
+        this.currantGame = game;
+        //TODO - startira ti metoda kojto da pita dali ]e igrae nowa igra -
+        //rezultata startira  this.currantGame.executePlayerChoiceForNewGame(true / false);
+
         return false;
     }
     

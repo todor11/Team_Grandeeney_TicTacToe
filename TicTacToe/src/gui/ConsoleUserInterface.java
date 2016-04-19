@@ -83,12 +83,13 @@ public class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public boolean getAnswerForNewGame() {
+    public boolean getAnswerForNewGame(Game game) {
         System.out.println("Do you want to start new game ?");
         if (this.console.nextLine().equals("yes")){
             return true;
         }
 
+        game.executePlayerChoiceForNewGame(false);
         return false;
     }
 
