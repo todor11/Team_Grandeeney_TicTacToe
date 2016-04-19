@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
+            <state vertical-scroll-proportion="0.0">
               <caret line="48" column="81" selection-start-line="48" selection-start-column="81" selection-end-line="48" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -37,23 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraficUserInterface.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GraficUserInterface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/GraficUserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="141" column="91" selection-start-line="141" selection-start-column="30" selection-end-line="141" selection-end-column="91" />
+            <state vertical-scroll-proportion="-0.02255639">
+              <caret line="123" column="8" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
               <folding>
-                <element signature="e#0#34395#0" expanded="true" />
+                <element signature="e#0#34482#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#5568#5657#0" expanded="true" />
-                <element signature="e#7823#7824#0" expanded="true" />
-                <element signature="e#7879#7880#0" expanded="true" />
-                <element signature="e#20577#20578#0" expanded="true" />
-                <element signature="e#20634#20635#0" expanded="true" />
-                <element signature="e#26934#26935#0" expanded="true" />
-                <element signature="e#26993#26994#0" expanded="true" />
-                <element signature="e#27220#27221#0" expanded="true" />
-                <element signature="e#27279#27280#0" expanded="true" />
+                <element signature="e#5655#5744#0" expanded="true" />
+                <element signature="e#7910#7911#0" expanded="true" />
+                <element signature="e#7966#7967#0" expanded="true" />
+                <element signature="e#20664#20665#0" expanded="true" />
+                <element signature="e#20721#20722#0" expanded="true" />
+                <element signature="e#27021#27022#0" expanded="true" />
+                <element signature="e#27080#27081#0" expanded="true" />
+                <element signature="e#27307#27308#0" expanded="true" />
+                <element signature="e#27366#27367#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,9 +155,9 @@
         <option value="$PROJECT_DIR$/src/game/entities/AI.java" />
         <option value="$PROJECT_DIR$/src/Launcher.java" />
         <option value="$PROJECT_DIR$/src/interfaces/UserInterface.java" />
-        <option value="$PROJECT_DIR$/src/gui/GraficUserInterface.java" />
         <option value="$PROJECT_DIR$/src/gui/ConsoleUserInterface.java" />
         <option value="$PROJECT_DIR$/src/game/Game.java" />
+        <option value="$PROJECT_DIR$/src/gui/GraficUserInterface.java" />
       </list>
     </option>
   </component>
@@ -674,12 +674,12 @@
       <workItem from="1460744208858" duration="3353000" />
       <workItem from="1460787391754" duration="10488000" />
       <workItem from="1461004837292" duration="3845000" />
-      <workItem from="1461008865933" duration="6195000" />
+      <workItem from="1461008865933" duration="6335000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60976000" />
+    <option name="totallyTimeSpent" value="61116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1098,26 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GraficUserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="141" column="91" selection-start-line="141" selection-start-column="30" selection-end-line="141" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#34395#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#5568#5657#0" expanded="true" />
-            <element signature="e#7823#7824#0" expanded="true" />
-            <element signature="e#7879#7880#0" expanded="true" />
-            <element signature="e#20577#20578#0" expanded="true" />
-            <element signature="e#20634#20635#0" expanded="true" />
-            <element signature="e#26934#26935#0" expanded="true" />
-            <element signature="e#26993#26994#0" expanded="true" />
-            <element signature="e#27220#27221#0" expanded="true" />
-            <element signature="e#27279#27280#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/ConsoleUserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1128,12 +1108,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
+        <state vertical-scroll-proportion="0.0">
           <caret line="48" column="81" selection-start-line="48" selection-start-column="81" selection-end-line="48" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5008#5009#0" expanded="true" />
             <element signature="e#5041#5042#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GraficUserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.02255639">
+          <caret line="123" column="8" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#34482#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#5655#5744#0" expanded="true" />
+            <element signature="e#7910#7911#0" expanded="true" />
+            <element signature="e#7966#7967#0" expanded="true" />
+            <element signature="e#20664#20665#0" expanded="true" />
+            <element signature="e#20721#20722#0" expanded="true" />
+            <element signature="e#27021#27022#0" expanded="true" />
+            <element signature="e#27080#27081#0" expanded="true" />
+            <element signature="e#27307#27308#0" expanded="true" />
+            <element signature="e#27366#27367#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -121,12 +121,12 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
 
     @Override
     public void writeMassage(String text) {
-
+        
     }
 
     @Override
     public void exitGame(){
-
+        //TODO ako ima neshto ot GUI-to koeto da se ztwarq
     }
 
     @Override
@@ -138,8 +138,8 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     @Override
     public boolean getAnswerForNewGame(Game game) {
         this.currantGame = game;
-        //TODO - startira ti metoda kojto da pita dali ]e igrae nowa igra -
-        //rezultata startira  this.currantGame.executePlayerChoiceForNewGame(true / false);
+        //TODO - startira ti metoda kojto da pita dali se igrae nowa igra -
+        //rezultata ot izbora na igracha startira  this.currantGame.executePlayerChoiceForNewGame(true / false);
 
         return false;
     }
