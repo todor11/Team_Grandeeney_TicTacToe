@@ -23,11 +23,11 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     
     // Variables declaration - do not modify
     private static int xo=0, compt=0;
-    private final ImageIcon x= new ImageIcon(getClass().getResource("XO.png"));
-    private final ImageIcon o= new ImageIcon(getClass().getResource("OX.png"));
-    private final ImageIcon labX= new ImageIcon(getClass().getResource("x.png"));
-    private final ImageIcon labO= new ImageIcon(getClass().getResource("o.png"));
-    private final ImageIcon background= new ImageIcon(getClass().getResource("background.png"));
+    private final ImageIcon x= new ImageIcon(getClass().getResource("/img/XO.png"));
+    private final ImageIcon o= new ImageIcon(getClass().getResource("/img/OX.png"));
+    private final ImageIcon labX= new ImageIcon(getClass().getResource("/img/x.png"));
+    private final ImageIcon labO= new ImageIcon(getClass().getResource("/img/o.png"));
+    private final ImageIcon background= new ImageIcon(getClass().getResource("/img/background.png"));
     private final boolean resGame = false;
     private String[] symbol = new String[]{"1", "2"};
     private boolean playerOneChose = false;
@@ -426,7 +426,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
         mainWindow.setBackground(new java.awt.Color(207, 23, 23));
         mainWindow.setPreferredSize(new java.awt.Dimension(600, 800));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Century Schoolbook L", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(223, 183, 22));
@@ -456,7 +456,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
             }
         });
 
-        playerOne_symbolO.setIcon(new javax.swing.ImageIcon(getClass().getResource("o.png"))); // NOI18N
+        playerOne_symbolO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/o.png"))); // NOI18N
         playerOne_symbolO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         playerOne_symbolO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -464,7 +464,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
             }
         });
 
-        playerOne_symbolX.setIcon(new javax.swing.ImageIcon(getClass().getResource("x.png"))); // NOI18N
+        playerOne_symbolX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x.png"))); // NOI18N
         playerOne_symbolX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         playerOne_symbolX.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -472,7 +472,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
             }
         });
 
-        playerTwo_symbolO.setIcon(new javax.swing.ImageIcon(getClass().getResource("o.png"))); // NOI18N
+        playerTwo_symbolO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/o.png"))); // NOI18N
         playerTwo_symbolO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         playerTwo_symbolO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -480,7 +480,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
             }
         });
 
-        playerTwo_symbolX.setIcon(new javax.swing.ImageIcon(getClass().getResource("x.png"))); // NOI18N
+        playerTwo_symbolX.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/x.png"))); // NOI18N
         playerTwo_symbolX.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         playerTwo_symbolX.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
