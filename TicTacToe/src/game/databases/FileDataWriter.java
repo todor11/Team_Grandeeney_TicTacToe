@@ -11,6 +11,7 @@ import java.io.ObjectOutputStream;
 
 public class FileDataWriter implements DataWriter {
     private static final String pathData = "resources/databases/winningDatabase.save";
+    private static final String statisticPathData = "resources/databases/statistic.save";
 
     public FileDataWriter(){
 
@@ -30,6 +31,13 @@ public class FileDataWriter implements DataWriter {
 
     @Override
     public void writeStatistic(Statistic statistic) {
-        //TODO
+        try (ObjectOutputStream oos = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream(this.statisticPathData)))) {
+            oos.writeObject(statistic.getStatistic());
+        }
+        catch (IOException ioe) {
+            System.out.println(ioe.toString());
+        }
     }
 }

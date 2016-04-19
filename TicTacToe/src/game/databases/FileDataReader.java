@@ -10,6 +10,7 @@ import java.util.TreeMap;
 
 public class FileDataReader implements DataReader {
     private static final String pathData = "resources/databases/winningDatabase.save";
+    private static final String statisticPathData = "resources/databases/statistic.save";
 
     public FileDataReader(){
     }
@@ -31,6 +32,16 @@ public class FileDataReader implements DataReader {
 
     @Override
     public void loadStatistic(Statistic statistic) {
-        //TODO
+        try (ObjectInputStream ois = new ObjectInputStream(
+                new BufferedInputStream(
+                        new FileInputStream(this.statisticPathData)))) {
+            statistic.setStatistic((List<String>) ois.readObject());
+        }
+        catch (FileNotFoundException fnff) {
+            //System.out.println(fnff.toString());
+        }
+        catch (ClassNotFoundException | IOException cnne) {
+            System.out.println(cnne.toString());
+        }
     }
 }

@@ -1,7 +1,10 @@
 package game.databases;
 
+import game.entities.Player;
+
 import java.io.Serializable;
 import java.util.List;
+
 
 public class GameInfo implements Serializable {
     private List<Player> players;
@@ -11,7 +14,7 @@ public class GameInfo implements Serializable {
     }
 
     public String getInfo() {
-        String info = String.Format("%s : %s",
+        String info = String.format("%s : %s",
                 players.get(0).toString(), players.get(1).toString());
         return info;
     }

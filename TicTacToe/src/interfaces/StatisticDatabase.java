@@ -9,9 +9,9 @@ import java.util.Map;
 public interface StatisticDatabase {
     void addStatistic(GameInfo gameInfo);
 
-    Map<String, List<Integer>> getStatistic();
+    List<String> getStatistic();
 
-    void setStatistic(Map<String, List<Integer>> statistic);
+    void setStatistic(List<String> statistic);
 
     void saveStatistic();
 }

@@ -5,11 +5,12 @@ import interfaces.DataWriter;
 import interfaces.StatisticDatabase;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class Statistic implements StatisticDatabase, Serializable {
-    private Map<String, List<Integer>> statistic;
+    private List<String> statistic;
     private DataReader dataReader;
     private DataWriter dataWriter;
 
@@ -22,22 +23,29 @@ public class Statistic implements StatisticDatabase, Serializable {
 
     @Override
     public void addStatistic(GameInfo gameInfo) {
-        //TODO
+        if (this.statistic == null){
+            this.statistic = new ArrayList<>();
+        }
+
+        this.statistic.add(gameInfo.getInfo());
     }
 
     @Override
-    public Map<String, List<Integer>> getStatistic() {
-        //TODO
-        return null;
+    public List<String> getStatistic() {
+        if (this.statistic == null){
+            this.statistic = new ArrayList<>();
+        }
+
+        return this.statistic;
     }
 
     @Override
-    public void setStatistic(Map<String, List<Integer>> statistic) {
-        //TODO
+    public void setStatistic(List<String> statistic) {
+        this.statistic = statistic;
     }
 
     @Override
     public void saveStatistic() {
-        //TODO
+        this.dataWriter.writeStatistic(this);
     }
 }
