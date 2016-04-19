@@ -60,10 +60,24 @@ public class AI extends Player {
                         this.move = data.get(currentFieldAsString).get(1).get(i).currentMove;
                     }
                 }
-            } else {
-                this.move = bestSteps.get(0).currentMove;
             }
         }
+
+        //check enemy data
+        if (this.move == null && data.containsKey(enemyFieldAsString)){
+            List<Step> bestSteps = data.get(enemyFieldAsString).firstEntry().getValue();
+            int numberOfBestStepsToWin = data.get(enemyFieldAsString).firstEntry().getKey();
+            if (numberOfBestStepsToWin == 1){
+                for (int i = 0; i < bestSteps.size(); i++) {
+                    String nextBestField = bestSteps.get(i).nextStep.fieldAsStringBeforeMove;
+                    if (data.containsKey(nextBestField) && data.get(nextBestField).containsKey(0) &&
+                            data.get(nextBestField).get(0).size() > 1){
+                        this.move = data.get(enemyFieldAsString).get(1).get(i).currentMove;
+                    }
+                }
+            }
+        }
+
 
         // get random move
         if (this.move == null){
