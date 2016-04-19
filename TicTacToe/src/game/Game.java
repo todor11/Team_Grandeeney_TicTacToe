@@ -128,8 +128,15 @@ public class Game implements Runnable{
 
     public void setPlayerProperties(String[] properties){
         if (properties != null){
-            Player firstPlayer = this.playerFactory.createPlayer(properties[0], properties[1], Symbols.O, this);
-            Player secondPlayer = this.playerFactory.createPlayer(properties[2], properties[3], Symbols.X, this);
+            Symbols firstPlayerSymbol = Symbols.O;
+            Symbols secondPlayerSymbol = Symbols.X;
+            if (properties[2].equals("X") && properties[5].equals("O")){
+                firstPlayerSymbol = Symbols.X;
+                secondPlayerSymbol = Symbols.O;
+            }
+
+            Player firstPlayer = this.playerFactory.createPlayer(properties[0], properties[1], firstPlayerSymbol, this);
+            Player secondPlayer = this.playerFactory.createPlayer(properties[3], properties[4], secondPlayerSymbol, this);
 
             if (firstPlayer != null && secondPlayer != null){
                 this.players[0] = firstPlayer;
