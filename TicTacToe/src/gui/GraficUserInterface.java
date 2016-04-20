@@ -149,19 +149,6 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     @Override
     public void writeMassage(String text) {
         this.endGameMsg = text;
-        /*
-        xo=1;
-        cas1.setIcon(null);cas1.setEnabled(true);
-        cas2.setIcon(null);cas2.setEnabled(true);
-        cas3.setIcon(null);cas3.setEnabled(true);
-        cas4.setIcon(null);cas4.setEnabled(true);
-        cas5.setIcon(null);cas5.setEnabled(true);
-        cas6.setIcon(null);cas6.setEnabled(true);
-        cas7.setIcon(null);cas7.setEnabled(true);
-        cas8.setIcon(null);cas8.setEnabled(true);
-        cas9.setIcon(null);cas9.setEnabled(true);
-        labelXO.setIcon(labX);
-        */
         endGame.setVisible(true);
         game.setVisible(false);
         result.setText(this.endGameMsg);

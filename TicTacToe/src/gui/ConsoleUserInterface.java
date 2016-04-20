@@ -15,9 +15,11 @@ import java.util.stream.Stream;
 
 public class ConsoleUserInterface implements UserInterface {
     private Scanner console;
+    private int counter;
 
     public ConsoleUserInterface(){
         this.console = new Scanner(System.in);
+        this.counter = 0;
     }
 
     @Override
@@ -94,6 +96,7 @@ public class ConsoleUserInterface implements UserInterface {
         }
 
         return false;
+
     }
 
     public void exitGame(){
