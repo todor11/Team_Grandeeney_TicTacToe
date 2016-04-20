@@ -1,10 +1,10 @@
 package game;
 
-import game.databases.GameInfo;
 import game.entities.Player;
-import game.databases.Statistic;
 import game.enums.Symbols;
 import game.factories.PlayerFactory;
+import interfaces.GameInformation;
+import interfaces.StatisticDatabase;
 import interfaces.UserInterface;
 import interfaces.WinningDatabase;
 
@@ -18,16 +18,19 @@ public class Game implements Runnable{
     private Player[] players;
     private Player activePlayer;
     private int activePlayerIndex;
-    private Statistic statistic;
-    private GameInfo gameInfo;
+    private StatisticDatabase statistic;
+    private GameInformation gameInfo;
     private PlayerFactory playerFactory;
     private boolean isZeroIndexPlayerFirst;
 
 
-    public Game(UserInterface userInterface, WinningDatabase winData, PlayerFactory playerFactory){
+    public Game(UserInterface userInterface, WinningDatabase winData, PlayerFactory playerFactory,
+                StatisticDatabase statistic, GameInformation gameInfo){
         this.userInterface = userInterface;
         this.winData = winData;
         this.playerFactory = playerFactory;
+        this.statistic = statistic;
+        this.gameInfo = gameInfo;
         this.init();
     }
 
@@ -84,6 +87,7 @@ public class Game implements Runnable{
                 this.userInterface.writeMassage("Winner : " + this.activePlayer.getName());
                 this.activePlayer.setIsWinner(true);
                 this.activePlayer.updatePoints();
+                this.userInterface.drawGameInfo(this.gameInfo);
             } else {
                 this.userInterface.writeMassage("Current game : equal result!");
                 this.players[0].updatePoints();

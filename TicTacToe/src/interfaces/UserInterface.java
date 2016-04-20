@@ -15,9 +15,9 @@ public interface UserInterface {
 
     void drawStartPage();
 
-    void drawGameInfo(GameInfo gameInfo);
+    void drawGameInfo(GameInformation gameInfo);
 
-    void drawStatistic(Statistic statistic);
+    void drawStatistic(StatisticDatabase statistic);
 
     void writeMassage(String text);
 

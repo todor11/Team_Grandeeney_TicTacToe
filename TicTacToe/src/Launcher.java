@@ -1,14 +1,9 @@
 import game.Game;
-import game.databases.FileDataReader;
-import game.databases.FileDataWriter;
-import game.databases.WinData;
+import game.databases.*;
 import game.factories.PlayerFactory;
 import gui.ConsoleUserInterface;
 import gui.GraficUserInterface;
-import interfaces.DataReader;
-import interfaces.DataWriter;
-import interfaces.UserInterface;
-import interfaces.WinningDatabase;
+import interfaces.*;
 
 public class Launcher {
     public static void main(String[] args) {
@@ -16,8 +11,10 @@ public class Launcher {
         DataReader dataReader = new FileDataReader();
         DataWriter dataWriter = new FileDataWriter();
         WinningDatabase dataBase = new WinData(dataReader, dataWriter);
+        StatisticDatabase statistic = new Statistic(dataReader, dataWriter);
+        GameInformation gameInfo = new GameInfo();
         PlayerFactory playerFactory = new PlayerFactory();
-        Game game = new Game(userInterface, dataBase, playerFactory);
+        Game game = new Game(userInterface, dataBase, playerFactory, statistic, gameInfo);
         game.start();
     }
 }

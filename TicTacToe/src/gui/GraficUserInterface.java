@@ -10,6 +10,8 @@ import game.databases.GameInfo;
 import game.entities.Player;
 import game.databases.Statistic;
 import game.enums.Symbols;
+import interfaces.GameInformation;
+import interfaces.StatisticDatabase;
 import interfaces.UserInterface;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -135,12 +137,12 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     }
 
     @Override
-    public void drawGameInfo(GameInfo gameInfo) {
+    public void drawGameInfo(GameInformation gameInfo) {
 
     }
 
     @Override
-    public void drawStatistic(Statistic statistic) {
+    public void drawStatistic(StatisticDatabase statistic) {
 
     }
 

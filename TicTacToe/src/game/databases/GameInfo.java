@@ -1,12 +1,13 @@
 package game.databases;
 
 import game.entities.Player;
+import interfaces.GameInformation;
 
 import java.io.Serializable;
 import java.util.List;
 
 
-public class GameInfo implements Serializable {
+public class GameInfo implements GameInformation, Serializable {
     private List<Player> players;
 
     public String getInfo() {
