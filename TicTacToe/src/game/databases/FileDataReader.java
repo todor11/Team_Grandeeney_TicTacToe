@@ -1,6 +1,7 @@
 package game.databases;
 
 import interfaces.DataReader;
+import interfaces.StatisticDatabase;
 import interfaces.WinningDatabase;
 
 import java.io.*;
@@ -31,11 +32,11 @@ public class FileDataReader implements DataReader {
     }
 
     @Override
-    public void loadStatistic(Statistic statistic) {
+    public void loadStatistic(StatisticDatabase statistic) {
         try (ObjectInputStream ois = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(this.statisticPathData)))) {
-            statistic.setStatistic((List<String>) ois.readObject());
+            statistic.setStatistic((Map<String, List<String>>) ois.readObject());
         }
         catch (FileNotFoundException fnff) {
             //System.out.println(fnff.toString());

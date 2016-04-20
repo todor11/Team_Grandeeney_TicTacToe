@@ -1,6 +1,7 @@
 package game.databases;
 
 import interfaces.DataWriter;
+import interfaces.StatisticDatabase;
 import interfaces.WinningDatabase;
 
 import java.io.BufferedOutputStream;
@@ -30,11 +31,11 @@ public class FileDataWriter implements DataWriter {
     }
 
     @Override
-    public void writeStatistic(Statistic statistic) {
+    public void writeStatistic(StatisticDatabase statistic) {
         try (ObjectOutputStream oos = new ObjectOutputStream(
                 new BufferedOutputStream(
                         new FileOutputStream(this.statisticPathData)))) {
-            oos.writeObject(statistic.getStatistic());
+            oos.writeObject(statistic.getAllStatistic());
         }
         catch (IOException ioe) {
             System.out.println(ioe.toString());

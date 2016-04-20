@@ -8,6 +8,9 @@ import interfaces.StatisticDatabase;
 import interfaces.UserInterface;
 import interfaces.WinningDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game implements Runnable{
     private UserInterface userInterface;
     private Symbols[][] field;
@@ -56,6 +59,7 @@ public class Game implements Runnable{
             }
         } else {
             this.winData.saveData();
+            this.statistic.saveStatistic(this.gameInfo.getInfo());
             this.userInterface.exitGame();
             this.stop();
         }
@@ -73,7 +77,6 @@ public class Game implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 
     public void executePlayerMove(int[] moves){
@@ -114,6 +117,7 @@ public class Game implements Runnable{
             if (this.isZeroIndexPlayerFirst){
                 this.activePlayerIndex = 0;
             }
+
             this.activePlayer = this.players[this.activePlayerIndex];
             for (int i = 0; i < this.field.length; i++) {
                 for (int j = 0; j < this.field[i].length; j++) {
@@ -144,6 +148,8 @@ public class Game implements Runnable{
                 this.players[0] = firstPlayer;
                 this.players[1] = secondPlayer;
                 this.activePlayer = this.players[0];
+                this.gameInfo.addPlayer(this.players[0]);
+                this.gameInfo.addPlayer(this.players[1]);
                 this.play();
             } else {
                 this.userInterface.writeMassage("Incorrect input of player settings");
@@ -166,6 +172,15 @@ public class Game implements Runnable{
 
     public Player getActivePlayer(){
         return this.activePlayer;
+    }
+
+    public List<List<String>> getStatistic(){
+        List<List<String>> allStatisticForTwoPlayers = new ArrayList<>();
+        for (int i = 0; i < this.players.length; i++) {
+            allStatisticForTwoPlayers.add(this.statistic.getStatisticForPlayer(this.players[i].getName()));
+        }
+
+        return allStatisticForTwoPlayers;
     }
 
     private void init(){
@@ -206,7 +221,4 @@ public class Game implements Runnable{
 
         return true;
     }
-
-
-
 }
