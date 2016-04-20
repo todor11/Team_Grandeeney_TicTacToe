@@ -75,6 +75,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
 
     private Player activePlayer;
     private Game currantGame;
+    private JButton[][] buttonMatrix;
 
     public GraficUserInterface() {
 
@@ -96,7 +97,23 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
 
     @Override
     public void drawField(Symbols[][] field) {
-
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                if (field[i][j] == Symbols.O){
+                    this.buttonMatrix[i][j].setIcon(o);
+                    this.buttonMatrix[i][j].setEnabled(false);
+                } else if (field[i][j] == Symbols.X){
+                    this.buttonMatrix[i][j].setIcon(x);
+                    this.buttonMatrix[i][j].setEnabled(false);
+                }
+            }
+        }
+        this.activePlayer = this.currantGame.getActivePlayer();
+        if (this.activePlayer.symbol == Symbols.O){
+            this.labelXO.setIcon(labO);
+        } else {
+            this.labelXO.setIcon(labX);
+        }
     }
 
 
@@ -195,6 +212,17 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
+
+        this.buttonMatrix = new JButton[3][3];
+        this.buttonMatrix[0][0] = this.cas1;
+        this.buttonMatrix[0][1] = this.cas2;
+        this.buttonMatrix[0][2] = this.cas3;
+        this.buttonMatrix[1][0] = this.cas4;
+        this.buttonMatrix[1][1] = this.cas5;
+        this.buttonMatrix[1][2] = this.cas6;
+        this.buttonMatrix[2][0] = this.cas7;
+        this.buttonMatrix[2][1] = this.cas8;
+        this.buttonMatrix[2][2] = this.cas9;
 
         game = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
