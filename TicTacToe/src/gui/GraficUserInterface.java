@@ -20,7 +20,7 @@ import javax.swing.JButton;
  */
 public class GraficUserInterface extends javax.swing.JFrame implements UserInterface  {
 
-    
+
     // Variables declaration - do not modify
     private static int xo=1;
     private final ImageIcon x= new ImageIcon(getClass().getResource("/img/XO.png"));
@@ -35,7 +35,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     public  String[] players;
 
     private int[] move;
-                         
+
     private javax.swing.JButton cas1;
     private javax.swing.JButton cas2;
     private javax.swing.JButton cas3;
@@ -163,12 +163,12 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
 
         return false;
     }
-    
 
-   
-    
+
+
+
     private void setIconXO(JButton bn){
-    
+
         if (xo % 2 != 0) {
             bn.setIcon(x);
             labelXO.setIcon(labX);
@@ -183,17 +183,17 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
              playerName.setText(player1.getText());
         }
     }
-    
+
     //----------------------fin de jeu -----------------------------------//
-    
+
     private void endGame(){
 
-        
+
     }
- 
-    
+
+
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         game = new javax.swing.JPanel();
@@ -594,67 +594,67 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
         setIconXO(cas1);
         this.move = new int[]{0,0};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
     private void cas3ActionPerformed(java.awt.event.ActionEvent evt) {
         setIconXO(cas3);
-        this.move = new int[]{2,0};
+        this.move = new int[]{0,2};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
     private void cas2ActionPerformed(java.awt.event.ActionEvent evt) {
         setIconXO(cas2);
-        this.move = new int[]{1,0};
+        this.move = new int[]{0,1};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
     private void cas6ActionPerformed(java.awt.event.ActionEvent evt) {
         setIconXO(cas6);
-        this.move = new int[]{2,1};
+        this.move = new int[]{1,2};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
     private void cas5ActionPerformed(java.awt.event.ActionEvent evt) {
         setIconXO(cas5);
         this.move = new int[]{1,1};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
     private void cas4ActionPerformed(java.awt.event.ActionEvent evt) {
         setIconXO(cas4);
-        this.move = new int[]{0,1};
+        this.move = new int[]{1,0};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
     private void cas9ActionPerformed(java.awt.event.ActionEvent evt) {
         setIconXO(cas9);
         this.move = new int[]{2,2};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
     private void cas8ActionPerformed(java.awt.event.ActionEvent evt) {
         setIconXO(cas8);
-        this.move = new int[]{1,2};
+        this.move = new int[]{2,1};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
     private void cas7ActionPerformed(java.awt.event.ActionEvent evt) {
         setIconXO(cas7);
-        this.move = new int[]{0,2};
+        this.move = new int[]{2,0};
         this.notifyForPlayerMove(this.move);
-    }                                    
+    }
 
-    private void resultActionPerformed(java.awt.event.ActionEvent evt) {                                       
+    private void resultActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                      
+    }
 
-    private void player1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void player1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                       
+    }
 
-    private void player2ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void player2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }                                       
+    }
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {
 
@@ -683,22 +683,22 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
         }
     }
 
-    private void restartActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        
+    private void restartActionPerformed(java.awt.event.ActionEvent evt) {
+
         endGame();
         game.setEnabled(true);
         endGame.setVisible(false);
         mainWindow.setVisible(false);
-       
-    }                                       
 
-    private void newGameActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    }
+
+    private void newGameActionPerformed(java.awt.event.ActionEvent evt) {
         mainWindow.setVisible(true);
         game.setVisible(false);
         endGame.setVisible(false);
         player1.setText(null);
         player2.setText(null);
-        
+
         restart.setEnabled(false);
 
 
@@ -715,12 +715,12 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
         cas7.setIcon(null);cas7.setEnabled(true);
         cas8.setIcon(null);cas8.setEnabled(true);
         cas9.setIcon(null);cas9.setEnabled(true);
-       
-    }                                       
 
-    private void exitActionPerformed(java.awt.event.ActionEvent evt) {                                     
+    }
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
-    }                                    
+    }
 
     private void playerOne_symbolXMouseClicked(java.awt.event.MouseEvent evt) {
 
@@ -740,8 +740,8 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
 
     }
 
-  
 
-   
-                 
+
+
+
 }
