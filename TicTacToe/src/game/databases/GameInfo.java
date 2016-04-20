@@ -4,15 +4,21 @@ import game.entities.Player;
 import interfaces.GameInformation;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class GameInfo implements GameInformation, Serializable {
     private List<Player> players;
 
+    public GameInfo(){
+        this.players = new ArrayList<>();
+    }
+
     public String getInfo() {
         String info = String.format("%s : %s",
                 players.get(0).toString(), players.get(1).toString());
+
         return info;
     }
 

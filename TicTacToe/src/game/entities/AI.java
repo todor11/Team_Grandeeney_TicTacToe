@@ -130,18 +130,6 @@ public class AI extends Player {
         return null;
     }
 
-    private Symbols[][] cloneMatrix(Symbols[][] matrix){
-        Symbols[][] newMatrix = new Symbols[matrix.length][];
-
-        for (int i = 0; i < matrix.length; i++) {
-            newMatrix[i] = new Symbols[matrix[i].length];
-            for (int j = 0; j < matrix[i].length; j++) {
-                newMatrix[i][j] = matrix[i][j];
-            }
-        }
-
-        return newMatrix;
-    }
 
     private Symbols[][] changeRoleInMatrix(Symbols[][] matrix){
         Symbols[][] newMatrix = new Symbols[matrix.length][];

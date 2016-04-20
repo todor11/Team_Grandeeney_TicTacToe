@@ -123,7 +123,7 @@ public abstract class Player {
         return false;
     }
 
-    private Symbols[][] cloneMatrix(Symbols[][] matrix){
+    protected Symbols[][] cloneMatrix(Symbols[][] matrix){
         Symbols[][] newMatrix = new Symbols[matrix.length][];
 
         for (int i = 0; i < matrix.length; i++) {

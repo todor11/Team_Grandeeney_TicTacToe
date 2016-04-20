@@ -2,8 +2,6 @@ package game.entities;
 
 import game.Game;
 import game.enums.Symbols;
-import interfaces.UserInterface;
-import interfaces.WinningDatabase;
 
 public class Human extends Player {
 
