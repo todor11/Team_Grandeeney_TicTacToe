@@ -84,9 +84,8 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
 
      @Override
     public int[] readPlayerMove(Player player) {
-
          this.activePlayer = player;
-
+         this.playerName.setText(player.getName());
          return null;
     }
 
@@ -105,6 +104,9 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
                 } else if (field[i][j] == Symbols.X){
                     this.buttonMatrix[i][j].setIcon(x);
                     this.buttonMatrix[i][j].setEnabled(false);
+                } else {
+                    this.buttonMatrix[i][j].setIcon(null);
+                    this.buttonMatrix[i][j].setEnabled(true);
                 }
             }
         }
@@ -145,6 +147,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     @Override
     public void writeMassage(String text) {
         this.endGameMsg = text;
+        /*
         xo=1;
         cas1.setIcon(null);cas1.setEnabled(true);
         cas2.setIcon(null);cas2.setEnabled(true);
@@ -156,6 +159,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
         cas8.setIcon(null);cas8.setEnabled(true);
         cas9.setIcon(null);cas9.setEnabled(true);
         labelXO.setIcon(labX);
+        */
         endGame.setVisible(true);
         game.setVisible(false);
         result.setText(this.endGameMsg);
@@ -183,7 +187,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
 
 
 
-
+    /*
     private void setIconXO(JButton bn){
 
         if (xo % 2 != 0) {
@@ -200,7 +204,7 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
              playerName.setText(player1.getText());
         }
     }
-
+    */
     //----------------------fin de jeu -----------------------------------//
 
     private void endGame(){
@@ -213,16 +217,6 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
-        this.buttonMatrix = new JButton[3][3];
-        this.buttonMatrix[0][0] = this.cas1;
-        this.buttonMatrix[0][1] = this.cas2;
-        this.buttonMatrix[0][2] = this.cas3;
-        this.buttonMatrix[1][0] = this.cas4;
-        this.buttonMatrix[1][1] = this.cas5;
-        this.buttonMatrix[1][2] = this.cas6;
-        this.buttonMatrix[2][0] = this.cas7;
-        this.buttonMatrix[2][1] = this.cas8;
-        this.buttonMatrix[2][2] = this.cas9;
 
         game = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -614,60 +608,72 @@ public class GraficUserInterface extends javax.swing.JFrame implements UserInter
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
+        this.buttonMatrix = new JButton[3][3];
+        this.buttonMatrix[0][0] = this.cas1;
+        this.buttonMatrix[0][1] = this.cas2;
+        this.buttonMatrix[0][2] = this.cas3;
+        this.buttonMatrix[1][0] = this.cas4;
+        this.buttonMatrix[1][1] = this.cas5;
+        this.buttonMatrix[1][2] = this.cas6;
+        this.buttonMatrix[2][0] = this.cas7;
+        this.buttonMatrix[2][1] = this.cas8;
+        this.buttonMatrix[2][2] = this.cas9;
 
         pack();
+
+
     }// </editor-fold>                        
 
     private void cas1ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas1);
+        //setIconXO(cas1);
         this.move = new int[]{0,0};
         this.notifyForPlayerMove(this.move);
     }
 
     private void cas3ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas3);
+        //setIconXO(cas3);
         this.move = new int[]{0,2};
         this.notifyForPlayerMove(this.move);
     }
 
     private void cas2ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas2);
+        //setIconXO(cas2);
         this.move = new int[]{0,1};
         this.notifyForPlayerMove(this.move);
     }
 
     private void cas6ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas6);
+        //setIconXO(cas6);
         this.move = new int[]{1,2};
         this.notifyForPlayerMove(this.move);
     }
 
     private void cas5ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas5);
+        //setIconXO(cas5);
         this.move = new int[]{1,1};
         this.notifyForPlayerMove(this.move);
     }
 
     private void cas4ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas4);
+        //setIconXO(cas4);
         this.move = new int[]{1,0};
         this.notifyForPlayerMove(this.move);
     }
 
     private void cas9ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas9);
+        //setIconXO(cas9);
         this.move = new int[]{2,2};
         this.notifyForPlayerMove(this.move);
     }
 
     private void cas8ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas8);
+        //setIconXO(cas8);
         this.move = new int[]{2,1};
         this.notifyForPlayerMove(this.move);
     }
 
     private void cas7ActionPerformed(java.awt.event.ActionEvent evt) {
-        setIconXO(cas7);
+        //setIconXO(cas7);
         this.move = new int[]{2,0};
         this.notifyForPlayerMove(this.move);
     }

@@ -160,6 +160,10 @@ public class Game implements Runnable{
         return this.winData;
     }
 
+    public Player getActivePlayer(){
+        return this.activePlayer;
+    }
+
     private void init(){
         this.isExitGame = false;
         this.isRunning = true;
