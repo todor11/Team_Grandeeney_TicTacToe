@@ -67,7 +67,7 @@ public class ConsoleUserInterface implements UserInterface {
 
     @Override
     public void drawGameInfo(GameInformation gameInfo) {
-
+        System.out.println(gameInfo.getInfo());
     }
 
     @Override
