@@ -24,6 +24,7 @@ public class ConsoleUserInterface implements UserInterface {
 
     @Override
     public int[] readPlayerMove(Player player) {
+        System.out.println("Please enter your next move (row col):");
         String text = this.console.nextLine();
         String[] line = text.split("\\s+");
         int[] moves = this.parseIntArray(line);
@@ -61,7 +62,7 @@ public class ConsoleUserInterface implements UserInterface {
 
     @Override
     public void drawStartPage() {
-        System.out.println("Write type and name of the players separated by whitespace");
+        System.out.println("Write type( Human or AI ), name and symbol ( X or O ) of the players separated by whitespace");
     }
 
     @Override
@@ -88,7 +89,7 @@ public class ConsoleUserInterface implements UserInterface {
 
     @Override
     public boolean getAnswerForNewGame(Game game) {
-        System.out.println("Do you want to start new game ?");
+        System.out.println("Do you want to start new game ? ( yes or no )");
         if (this.console.nextLine().equals("yes")){
             return true;
         } else {
