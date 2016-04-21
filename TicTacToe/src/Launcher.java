@@ -8,6 +8,7 @@ import interfaces.*;
 public class Launcher {
     public static void main(String[] args) {
         UserInterface userInterface = new ConsoleUserInterface();
+        //UserInterface userInterface = new GraficUserInterface();
         DataReader dataReader = new FileDataReader();
         DataWriter dataWriter = new FileDataWriter();
         WinningDatabase dataBase = new WinData(dataReader, dataWriter);
